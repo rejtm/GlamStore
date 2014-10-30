@@ -1,39 +1,62 @@
-# Config and Htaccess Files
-/upload/.htaccess
-/upload/config.php
-/upload/admin/config.php
+.gitattributes
+.gitignore
+.htaccess
+upload/config.php
+upload/admin/config.php
 
-# System Cache Files
-/upload/system/cache/*
-!/upload/system/cache/index.html
+!index.html
 
-# Image File
-!/upload/image/no_image.jpg
+upload/download/
+upload/image/data/
+upload/image/cache/
+upload/system/cache/
+upload/system/logs/
+upload/vqmod/vqcache/
+upload/vqmod/*.cache
 
-# Image Cache Files
-/upload/image/cache/*
-!/upload/image/cache/index.html
+# =========================
+# Operating System Files
+# =========================
 
-# Templates Files
-/upload/image/templates/*
-/upload/image/templates/default.jpg
+# OSX
+# =========================
 
-# Download Files
-/upload/download/*
-!/upload/download/index.html
+.DS_Store
+.AppleDouble
+.LSOverride
 
-!/upload/data/index.html
+# Icon must end with two \r
+Icon
 
-# Flags 
-# remove sharp char if you want to add flags to gitignore
-# /upload/flags/*
+# Thumbnails
+._*
 
-# Log Files
-/upload/system/logs/*
-!/upload/system/logs/index.html
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
 
-# If you want to ignore install file use following lines [on development mode]
-# /upload/backup.install/*
-# /upload/install/*
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-/README.md
+# Windows
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
