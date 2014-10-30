@@ -70,6 +70,8 @@ class ControllerProductSearch extends Controller {
 		} else {
 			$this->document->setTitle($this->language->get('heading_title'));
 		}
+		
+		$this->document->setRobots('noindex,follow');
 
 		$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
 		$this->document->addScript('catalog/view/javascript/jquery/jail/jail.min.js');
@@ -131,6 +133,8 @@ class ControllerProductSearch extends Controller {
 		} else {
 			$this->data['heading_title'] = $this->language->get('heading_title');
 		}
+		
+		$this->document->setRobots('noindex,follow');
 
 		$this->data['text_empty'] = $this->language->get('text_empty');
 		$this->data['text_critea'] = $this->language->get('text_critea');

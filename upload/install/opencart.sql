@@ -414,7 +414,8 @@ INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `ba
 -- Table structure for table `oc_benefit`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_benefit` (
+DROP TABLE IF EXISTS `oc_benefit`;
+CREATE TABLE `oc_benefit` (
   `benefit_id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -441,12 +442,13 @@ INSERT INTO `oc_benefit` (`benefit_id`, `link`, `status`, `type`, `image`, `name
 -- Table structure for table `oc_benefit_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_benefit_description` (
+DROP TABLE IF EXISTS `oc_benefit_description`;
+CREATE TABLE `oc_benefit_description` (
   `benefit_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `description` text NOT NULL,
-  UNIQUE KEY `benefit_id` (`benefit_id`,`language_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`benefit_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_benefit_description`
@@ -470,7 +472,8 @@ INSERT INTO `oc_benefit_description` (`benefit_id`, `language_id`, `description`
 -- Table structure for table `oc_product_to_benefit`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_product_to_benefit` (
+DROP TABLE IF EXISTS `oc_product_to_benefit`;
+CREATE TABLE `oc_product_to_benefit` (
   `product_id` int(11) NOT NULL,
   `benefit_id` int(11) NOT NULL,
   KEY `product_id` (`product_id`),
@@ -799,7 +802,7 @@ DROP TABLE IF EXISTS `oc_category_option_description`;
 CREATE TABLE `oc_category_option_description` (
   `option_id` int(10) NOT NULL,
   `language_id` int(10) NOT NULL,
-  `name` varchar(127) COLLATE utf8_bin NOT NULL,
+  `name` varchar(127) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`option_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -922,7 +925,7 @@ DROP TABLE IF EXISTS `oc_coolfilter_group_description`;
 CREATE TABLE `oc_coolfilter_group_description` (
   `coolfilter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
-  `name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `name` varchar(64) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`coolfilter_group_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1023,7 +1026,7 @@ INSERT INTO `oc_coolfilter_group_to_category` (`coolfilter_group_id`, `category_
 DROP TABLE IF EXISTS `oc_type_option`;
 CREATE TABLE `oc_type_option` (
   `option_id` int(11) NOT NULL,
-  `type_index` varchar(250) COLLATE utf8_bin NOT NULL,
+  `type_index` varchar(250) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`type_index`,`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1046,7 +1049,7 @@ INSERT INTO `oc_type_option` (`option_id`, `type_index`) VALUES
 DROP TABLE IF EXISTS `oc_style_option`;
 CREATE TABLE `oc_style_option` (
   `option_id` int(11) NOT NULL,
-  `style_id` varchar(250) COLLATE utf8_bin NOT NULL,
+  `style_id` varchar(250) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`style_id`,`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -3211,7 +3214,7 @@ CREATE TABLE `oc_product_to_layout` (
 --
 
 DROP TABLE IF EXISTS `oc_product_to_sticker`;
-CREATE TABLE IF NOT EXISTS `oc_product_to_sticker` (
+CREATE TABLE `oc_product_to_sticker` (
   `product_id` int(11) NOT NULL,
   `sticker_id` int(11) NOT NULL,
   `position` tinyint(1) NOT NULL,
@@ -3633,7 +3636,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (179, 0, 'blog_mostviewed', 'blog_mostviewed_module', 'a:3:{i:0;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"14";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}i:1;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"12";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}i:2;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"13";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
 (180, 0, 'blog_reviews', 'blog_reviews_module', 'a:3:{i:0;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:17:"Recently Reviewed";}s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"200";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"14";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:1;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:17:"Recently Reviewed";}s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"200";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"12";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:2;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:17:"Recently Reviewed";}s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"200";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"13";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1),
 (181, 0, 'cachemanager', 'gzip', '0', 0),
-(182, 0, 'cachemanager', 'cache', 'a:2:{s:4:"menu";a:2:{s:6:"status";s:1:"1";s:8:"lifetime";s:5:"86400";}s:14:"categorymodule";a:2:{s:6:"status";s:1:"1";s:8:"lifetime";s:5:"86400";}}', 1),
+(182, 0, 'cachemanager', 'cache', 'a:2:{s:4:"menu";a:2:{s:6:"status";s:1:"0";s:8:"lifetime";s:5:"86400";}s:14:"categorymodule";a:2:{s:6:"status";s:1:"0";s:8:"lifetime";s:5:"86400";}}', 1),
 (183, 0, 'testimonial', 'testimonial_default_rating', '3', 0),
 (184, 0, 'testimonial', 'testimonial_admin_approved', '0', 0),
 (185, 0, 'testimonial', 'testimonial_send_to_admin', '0', 0),
@@ -3649,7 +3652,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 --
 
 DROP TABLE IF EXISTS `oc_sticker`;
-CREATE TABLE IF NOT EXISTS `oc_sticker` (
+CREATE TABLE `oc_sticker` (
   `sticker_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -3818,7 +3821,7 @@ INSERT INTO `oc_tax_rule` (`tax_rule_id`, `tax_class_id`, `tax_rate_id`, `based`
 -- Table structure for table `oc_testimonial`
 --
 DROP TABLE IF EXISTS `oc_testimonial`;
-CREATE TABLE IF NOT EXISTS `oc_testimonial` (
+CREATE TABLE `oc_testimonial` (
   `testimonial_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `city` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -3839,11 +3842,11 @@ CREATE TABLE IF NOT EXISTS `oc_testimonial` (
 -- Table structure for table `oc_testimonial_description`
 --
 DROP TABLE IF EXISTS `oc_testimonial_description`;
-CREATE TABLE IF NOT EXISTS `oc_testimonial_description` (
+CREATE TABLE `oc_testimonial_description` (
   `testimonial_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
-  `title` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(64) NOT NULL DEFAULT '' COLLATE utf8_unicode_ci,
+  `description` text NOT NULL COLLATE utf8_unicode_ci,
   PRIMARY KEY (`testimonial_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -4587,9 +4590,7 @@ CREATE TABLE `oc_article_description` (
   `seo_h1` varchar(255) NOT NULL,
   `tag` text NOT NULL,
   PRIMARY KEY (`article_id`,`language_id`),
-  KEY `name` (`name`),
-  FULLTEXT KEY `description` (`description`),
-  FULLTEXT KEY `tag` (`tag`)
+  KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --

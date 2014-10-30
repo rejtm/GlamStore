@@ -70,11 +70,11 @@
   <hr>
 <div id="powered"><?php echo $powered; ?></div>
 <div id="social">
-	   <a target="_blank" href="<?php echo $vk; ?>"><i class="fa fa-vk"></i></a>
-	   <a target="_blank" href="<?php echo $fb; ?>"><i class="fa fa-facebook"></i></a>
-	   <a target="_blank" href="<?php echo $googleplus; ?>"><i class="fa fa-google-plus"></i></a>
-	   <a target="_blank" href="<?php echo $youtube; ?>"><i class="fa fa-youtube"></i></a>
-	   <a target="_blank" href="<?php echo $twitter; ?>"><i class="fa fa-twitter"></i></a>
+	   <?php if ($vk) { ?><a target="_blank" href="<?php echo $vk; ?>"><i class="fa fa-vk"></i></a><?php } ?>
+	   <?php if ($fb) { ?><a target="_blank" href="<?php echo $fb; ?>"><i class="fa fa-facebook"></i></a><?php } ?>
+	   <?php if ($googleplus) { ?><a target="_blank" href="<?php echo $googleplus; ?>"><i class="fa fa-google-plus"></i></a><?php } ?>
+	   <?php if ($youtube) { ?><a target="_blank" href="<?php echo $youtube; ?>"><i class="fa fa-youtube"></i></a><?php } ?>
+	   <?php if ($twitter) { ?><a target="_blank" href="<?php echo $twitter; ?>"><i class="fa fa-twitter"></i></a><?php } ?>
 </div>
 </div>
 </div>
